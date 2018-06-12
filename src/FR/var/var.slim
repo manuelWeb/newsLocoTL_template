@@ -1,0 +1,65 @@
+/### do not change
+-$mirorLink = "https://tempsl.com/Newsletters/miroir/#{$miror}/FR/index.htm"
+-$url       ="https://www.tempsl.fr/fr/";$urlCat ="https://www.tempsl.fr/cat/fr/"
+/ -$srcAbs  = "https://www.webdesignord.fr/domoti/TL/FR/images/"
+-$srcAbs    = "https://tempsl.com/Newsletters/miroir/News_#{$objso["campaignName"]}_#{$objso["date"]}/FR/images/"
+-$index     ="index.aspx"
+-$srcmedium =["?utm_source=NL&utm_medium=email","&utm_source=NL&utm_medium=email"]
+-$content   =["&utm_content=","url","garantie","livraison","paiement","contact","desabo"]
+
+/ compact
+-urlRay = $objso["url"]["fr"]+$objso["ray"]+$objso["ID"]["fr"]+$srcmedium[1]+$content[0]
+-pdt    = { # ...,
+  gg: "#{$srcmedium[0]}#{$content[0]}",
+  pkpromo: "#{$objso["url"]["fr"]}#{$objso["link"]["promo"]["fr"]}",
+  pk1: "#{$objso["url"]["fr"]}#{$objso["link"]["pk1"]["fr"]}",
+  pk2: "#{$objso["url"]["fr"]}#{$objso["link"]["pk2"]["fr"]}",
+  pk3: "#{$objso["url"]["fr"]}#{$objso["link"]["pk3"]["fr"]}",
+  pk4: "#{$objso["url"]["fr"]}#{$objso["link"]["pk4"]["fr"]}",
+  }
+
+/ ### lib FR
+- $libPromo = [$objso["lib"]["promo"]["fr"][0],$objso["lib"]["promo"]["fr"][1]]
+- $libPromo_price = [$objso["price"]["promo"]["fr"][0],$objso["price"]["promo"]["fr"][1]]
+- $lib1   = $objso["lib"]["fr"]["pk1"]
+- $lib1_  = $objso["lib"]["fr_"]["pk1"]
+- $price1 = $objso["price"]["pk1"]["fr"]
+- $lib2   = $objso["lib"]["fr"]["pk2"]
+- $lib2_  = $objso["lib"]["fr_"]["pk2"]
+- $price2 = $objso["price"]["pk2"]["fr"]
+- $lib3   = $objso["lib"]["fr"]["pk3"]
+- $lib3_  = $objso["lib"]["fr_"]["pk3"]
+- $price3 = $objso["price"]["pk3"]["fr"]
+- $lib4   = $objso["lib"]["fr"]["pk4"]
+- $lib4_  = $objso["lib"]["fr_"]["pk4"]
+- $price4 = $objso["price"]["pk4"]["fr"]
+
+- $price_title = $objso["price_title"]["fr"]
+- $btn_pk      = $objso["btn_pk"]["fr"]
+- $btn_ray     = $objso["btn_ray"]["fr"]
+
+/### content link ["logo", "accroche", "pdt", "prix", "bouton" ]
+- $s0_logo = "#{$objso["url"]["fr"]}index.aspx#{pdt[:gg]}logo#{$campaign}"
+
+/ to change :
+- $s1_titletop = $s2c1_title_left = $s2c2_title = $s2c3_title_right = $s3_title_bottom = "#{urlRay}accroche#{$campaign}"
+- $s4c2s1_promo_title = $s4c2s2_promo_pk = $s5c1_promo_lib = $s5c2_promo_price = pdt[:pkpromo]+pdt[:gg]+"pkpromo"+$campaign
+- $s5c3_promo_cta = pdt[:pkpromo]+pdt[:gg]+"pkpromo_btn"+$campaign
+
+- $pk1_link     = pdt[:pk1]+pdt[:gg]+"pdt1"+$campaign
+- $pk1_btn      = pdt[:pk1]+pdt[:gg]+"btn1"+$campaign
+- $pk2_link     = pdt[:pk2]+pdt[:gg]+"pdt2"+$campaign
+- $pk2_btn      = pdt[:pk2]+pdt[:gg]+"btn2"+$campaign
+- $pk3_link     = pdt[:pk3]+pdt[:gg]+"pdt3"+$campaign
+- $pk3_btn      = pdt[:pk3]+pdt[:gg]+"btn3"+$campaign
+- $pk4_link     = pdt[:pk4]+pdt[:gg]+"pdt4"+$campaign
+- $pk4_btn      = pdt[:pk4]+pdt[:gg]+"btn4"+$campaign
+
+- $s10_btn_ray  = "#{urlRay}bouton#{$campaign}"
+
+/ alt to change    :
+- $alt_s1_titletop_bk = ""
+- $alt_s1_titletop    = "Composez vos salades comme des chefs !"
+
+// don't change
+- $alt_logo   = "Temps L"

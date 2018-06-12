@@ -1,0 +1,136 @@
+/ _content
+tr
+  td
+    a href==($s2c2_title) target="_blank"
+      img src==(($abspath == true ? $srcAbs : $srcRel)+"s1_title.jpg") width="620" height="137" alt==($alt_s1_title)
+tr
+  td
+    table border="0" cellpadding="0" cellspacing="0" width="620"
+      tr
+        td
+          a href==($s2c2_title) target="_blank"
+            img src==(($abspath == true ? $srcAbs : $srcRel)+"s2c1_title.jpg") width="78" height="101" alt==($alt_s2c1_title)
+        td
+          a href==($s2c2_title) target="_blank"
+            img src==(($abspath == true ? $srcAbs : $srcRel)+"s2c2_title.png") width="464" height="101" alt==($alt_s2c2_title)
+        td
+          a href==($s2c2_title) target="_blank"
+            img src==(($abspath == true ? $srcAbs : $srcRel)+"s2c3_title.jpg") width="78" height="101" alt==($alt_s2c3_title)
+tr
+  td
+    img src==(($abspath == true ? $srcAbs : $srcRel)+"s3_title_mb.png") alt=""
+
+- if $objso["layout"]["addPromo"]
+  tr
+    td
+      table border="0" cellpadding="0" cellspacing="0" width="620"
+        tr
+          / promo_ml
+          td width="5" height="398"
+          td
+            table border="0" cellpadding="0" cellspacing="0" width="610"
+              tr
+                td
+                  a href==($s4c2s1_promo_title) target="_blank"
+                    img src==(($abspath == true ? $srcAbs : $srcRel)+"s4c2s1_promo_title.png") width="610" height="45" alt==($alt_s4c2s1_promo_title)
+              tr
+                td
+                  a href==($s4c2s2_promo_pk) target="_blank"
+                    img src==(($abspath == true ? $srcAbs : $srcRel)+"s4c2s2_promo_pk.jpg") width="610" height="353" alt==($alt_s4c2s2_promo_pk)
+          / promo_mr
+          td width="5" height="398"
+
+  tr
+    td
+      table border="0" cellpadding="0" cellspacing="0" width="620"
+        tr
+          td.promolib.pl5 width="373"
+            a href==($s5c1_promo_lib) target="_blank"
+              == $libPromo[0]
+              br
+              span
+                == $libPromo[1]
+
+          td.promoprice.pr10 width="119" align="right" valign="bottom"
+            a href==($s5c2_promo_price) target="_blank"
+              span.promoprice_crossed
+                s
+                  == $libPromo_price[0]
+              br
+              span.promoprice
+                == $libPromo_price[1]
+
+          td width="128" height="68"
+            a href==($s5c3_promo_cta) target="_blank"
+              img src==(($abspath == true ? $srcAbs : $srcRel)+"s5c3_promo_cta.png") width="128" height="68" alt==($alt_s5c3_promo_cta)
+// end Promo
+tr
+  td height="10"
+
+- $objso["count"].each_slice(2).each_with_index do |slice, i|
+  /! #ligne#{i + 1}
+  tr
+    td
+      table border="0" cellpadding="0" cellspacing="0" width="620"
+        tr
+          - slice.each do |item|
+            / pk1_ml
+            == item[1] % 2 === 1 ? "<td width=\"5\"></td>" : "<td width=\"5\"></td>"
+            td
+              a href==(eval("$pk#{item[1]}_link")) target="_blank"
+                img src==(($abspath == true ? $srcAbs : $srcRel)+"s7_pk#{item[1]}.jpg") width="300" height="247" border="0" alt==($alt_pk1)
+            - if(item[1] % 2 === 1)
+              td width="5"
+            - else
+              td width="5"
+        // bottom shadow
+        tr
+          - slice.each do |item|
+            / pk1_ml
+            == item[1] % 2 === 1 ? "<td width=\"5\" style=\"font-size: 10px;\">l1</td>" : "<td width=\"5\" style=\"font-size: 10px;\">l2</td>"
+            td height="10"
+              img src==(($abspath == true ? $srcAbs : $srcRel)+"s7_pk_btm_shad.png") alt=""
+            - if(item[1] % 2 === 1)
+              td width="5" style="font-size: 10px;"
+                | r1
+            - else
+              td width="5" style="font-size: 10px;"
+                | r2
+
+    /! #######ENDligne#{i + 1}
+    tr
+      td
+        table border="0" cellpadding="0" cellspacing="0" width="620"
+          tr
+            - slice.each do |item|
+              td
+                table border="0" cellpadding="0" cellspacing="0" width="310"
+                  tr
+                    td.pl10.pr10 align="center" valign="middle"
+                      a.pk_lib.txtcenter href==(eval("$pk#{item[1]}_link")) target="_blank"
+                        == eval("$lib#{item[1]}")
+                        br
+                        span == eval("$lib#{item[1]}_")
+                        br
+                        b == eval("$price#{item[1]}")
+                  tr
+                    td align="center"
+                      table border="0" cellpadding="0" cellspacing="0" width="92"
+                        tr
+                          td.tac.lhn.m0auto.vam bgcolor="#EF0105" height="34" align="center" valign="middle" style="border-radius: 4px;"
+                            a.pkcta href==(eval("$pk#{item[1]}_btn")) target="_blank"
+                              == $btn_pk
+
+    tr
+      td height="30"
+tr
+  / s10_btn_ray
+  td valign="middle" align="center"
+    table border="0" cellpadding="0" cellspacing="0"
+      tr
+        td.lhn.m0auto.pr20.pl20.vam height="52" valign="middle" align="center" bgcolor="#407D00"
+          a.callprice href==($s10_btn_ray) target="_blank"
+            img.di.pr10 src==(($abspath == true ? $srcAbs : $srcRel)+"s_btn_arrow.png")
+            == $btn_ray
+tr
+  td height="30"

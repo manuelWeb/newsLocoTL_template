@@ -1,0 +1,59 @@
+== Slim::Template.new('src/var_global.slim').render
+== Slim::Template.new('src/UK/var/var.slim').render
+== Slim::Template.new('src/UK/var/var_footer.slim').render
+-$phonecoast= ["**", " Calls cost 7 pence per minute, plus your phone company’s access charge. <br /> Monday-Friday 8.30am - 5pm / Saturday 8.30am - 4.30pm."]
+doctype transitional
+html
+  head
+    title == $objso["title"]["uk"]
+    link rel="stylesheet" href="css/stylesAdd.css"
+    / link rel="stylesheet" href="src/UK/scss/stylesAdd.scss"
+    meta http-equiv="Content-Type" content="text/html; charset=utf-8"
+
+  body bgcolor="#{$varbgcolor}"
+    table.m0auto.bg-color.w100 align="center" border="0" cellpadding="0" cellspacing="0" width="640"
+      /! header
+      == Slim::Template.new('./src/UK/partial/_header.slim').render
+      tr
+        -if $objso["layout"]["topShad"]
+          td.m0auto align="center"
+            img src==(($abspath == true ? $srcAbs : $srcRel)+"top-shad.png") width="640" height="10" border="0" alt=""
+        -else
+          td.m0auto align="center" height="10"
+      /! content
+      tr
+        // ############ SHADOW ############
+        -if $objso["layout"]["shadLR"]
+          td valign="top" align="center"
+            table.m0auto border="0" cellpadding="0" cellspacing="0" width="640" align="center"
+              tr
+                td valign="top"
+                  img src==(($abspath == true ? $srcAbs : $srcRel)+"left-shad.png") width="10" height==($objso["layout"]["shadLR_H"]) border="0" alt=""
+
+                td
+                  table border="0" cellpadding="0" cellspacing="0" width="620"
+                    / content
+                    == Slim::Template.new('./src/FR/partial/_content.slim').render
+
+                    tr
+                      td bgcolor==($white) height="0"
+
+                    /! footer
+                    == Slim::Template.new('./src/UK/partial/_footer.slim').render
+
+                    /! mentions
+                    == Slim::Template.new('./src/UK/partial/_mentions.slim').render
+                td valign="top"
+                  img src==(($abspath == true ? $srcAbs : $srcRel)+"right-shad.png") width="10" height==($objso["layout"]["shadLR_H"]) border="0" alt=""
+        // ############ END IF SHADOW ############
+        -else
+          td valign="top" align="center"
+            table.m0auto border="0" cellpadding="0" cellspacing="0" width="620" align="center"
+              / content
+              == Slim::Template.new('./src/FR/partial/_content.slim').render
+              tr
+                td bgcolor==($white) height="0"
+              /! footer
+              == Slim::Template.new('./src/UK/partial/_footer.slim').render
+              /! mentions
+              == Slim::Template.new('./src/UK/partial/_mentions.slim').render

@@ -1,0 +1,32 @@
+/ ### !important créer les variable depuis source.json
+-require 'json'
+-file = File.read('source.json')
+-$objso = JSON.parse(file)
+
+-$white       = "#FFFFFF"
+-$vartxtcolor = "#DF131F"
+-$varbgcolor  = $white
+
+-$campaign = "&utm_campaign=#{$objso["date"]}_#{$objso["campaignName"]}"
+-$miror    = "News_"+"#{$objso["campaignNameM"]}_#{$objso["date"]}"
+/ layout
+-$abspath = $objso["layout"]["abspath"]
+/ $srcAbs production cf src/#{country}/var.slim
+/ test serv webdesignord descendre var globale sur chaque index.slim
+/ -$srcAbs  = "http://www.webdesignord.fr/domoti/TL/images/"
+-$srcRel  = "images/"
+
+/ ID rayon
+- $IDray = { # ...,
+  fr: "",
+  bf: "",
+  bv: "",
+  nl: "",
+  de: "",
+  uk: ""}
+
+/ main nav
+-$altunivers = ["CUISINE","ENTRETIEN ET RANGEMENT","SANTE ET BEAUTE","MAISON ET DECO","LOISIRS","VETEMENTS ET ACCESSOIRES"]
+
+/ code KDO footer
+- $code = "XXXX"

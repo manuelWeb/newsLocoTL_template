@@ -1,0 +1,68 @@
+/### change link + alt autre : cf source.json
+
+/### do not change
+-$mirorLink = "https://tempsl.com/Newsletters/miroir/#{$miror}/BEFR/index.htm"
+-$srcAbs    = "https://tempsl.com/Newsletters/miroir/News_OM_#{$objso["campaignName"]}_#{$objso["date"]}/BEFR/images/"
+/### do not change content link
+-$srcmedium     =["?utm_source=NL&utm_medium=email","&utm_source=NL&utm_medium=email"]
+-$content       =["&utm_content=","url","garantie","livraison","paiement","cgv","contact","desabo"]
+/### do not change footer
+-$haconfiance   =["achat_confiance/","garanties.aspx","informations-livraison.aspx","paiement-securise.aspx","conditions-generales-de-vente.aspx"]
+/### do not change mentions
+-$contactdesabo =["idealpractical_and_you/contact.aspx?val=A","animation/DesinscriptionNewsletter.aspx"]
+/ compact
+-urlRay = $objso["url"]["bf"]+$objso["ray"]+$objso["ID"]["bf"]+$srcmedium[1]+$content[0]
+-pdt    = { # ...,
+  gg: "#{$srcmedium[0]}#{$content[0]}",
+  pkpromo: "#{$objso["url"]["bf"]}#{$objso["link"]["promo"]["bf"]}",
+  pk1: "#{$objso["url"]["bf"]}#{$objso["link"]["pk1"]["bf"]}",
+  pk2: "#{$objso["url"]["bf"]}#{$objso["link"]["pk2"]["bf"]}",
+  pk3: "#{$objso["url"]["bf"]}#{$objso["link"]["pk3"]["bf"]}",
+  pk4: "#{$objso["url"]["bf"]}#{$objso["link"]["pk4"]["bf"]}",
+  }
+
+/ ### lib BF
+- $libPromo = [$objso["lib"]["promo"]["bf"][0],$objso["lib"]["promo"]["bf"][1]]
+- $libPromo_price = [$objso["price"]["promo"]["bf"][0],$objso["price"]["promo"]["bf"][1]]
+- $lib1   = $objso["lib"]["bf"]["pk1"]
+- $lib1_  = $objso["lib"]["bf_"]["pk1"]
+- $price1 = $objso["price"]["pk1"]["bf"]
+- $lib2   = $objso["lib"]["bf"]["pk2"]
+- $lib2_  = $objso["lib"]["bf_"]["pk2"]
+- $price2 = $objso["price"]["pk2"]["bf"]
+- $lib3   = $objso["lib"]["bf"]["pk3"]
+- $lib3_  = $objso["lib"]["bf_"]["pk3"]
+- $price3 = $objso["price"]["pk3"]["bf"]
+- $lib4   = $objso["lib"]["bf"]["pk4"]
+- $lib4_  = $objso["lib"]["bf_"]["pk4"]
+- $price4 = $objso["price"]["pk4"]["bf"]
+
+- $price_title = $objso["price_title"]["bf"]
+- $btn_pk      = $objso["btn_pk"]["bf"]
+- $btn_ray     = $objso["btn_ray"]["bf"]
+
+/### content link ["logo", "accroche", "pdt", "prix", "bouton" ]
+- $s0_logo          = "#{$objso["url"]["bf"]}index.aspx#{pdt[:gg]}logo#{$campaign}"
+
+/ to change :
+- $s1_titletop = $s2c1_title_left = $s2c2_title = $s2c3_title_right = $s3_title_bottom = "#{urlRay}accroche#{$campaign}"
+- $s4c2s1_promo_title = $s4c2s2_promo_pk = $s5c1_promo_lib = $s5c2_promo_price = pdt[:pkpromo]+pdt[:gg]+"pkpromo"+$campaign
+- $s5c3_promo_cta = pdt[:pkpromo]+pdt[:gg]+"pkpromo_btn"+$campaign
+
+- $pk1_link     = pdt[:pk1]+pdt[:gg]+"pdt1"+$campaign
+- $pk1_btn      = pdt[:pk1]+pdt[:gg]+"btn1"+$campaign
+- $pk2_link     = pdt[:pk2]+pdt[:gg]+"pdt2"+$campaign
+- $pk2_btn      = pdt[:pk2]+pdt[:gg]+"btn2"+$campaign
+- $pk3_link     = pdt[:pk3]+pdt[:gg]+"pdt3"+$campaign
+- $pk3_btn      = pdt[:pk3]+pdt[:gg]+"btn3"+$campaign
+- $pk4_link     = pdt[:pk4]+pdt[:gg]+"pdt4"+$campaign
+- $pk4_btn      = pdt[:pk4]+pdt[:gg]+"btn4"+$campaign
+
+- $s10_btn_ray  = "#{urlRay}bouton#{$campaign}"
+
+/ alt to change    :
+- $alt_s1_titletop_bk = ""
+- $alt_s1_titletop    = "Composez vos salades comme des chefs !"
+
+// don't change
+- $alt_logo   = "IDEAL PRATIQUE"

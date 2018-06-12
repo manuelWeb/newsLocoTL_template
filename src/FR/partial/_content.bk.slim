@@ -1,0 +1,104 @@
+/ _content
+tr
+  td
+    a href==($s1_titletop) target="_blank"
+      img src==(($abspath == true ? $srcAbs : $srcRel)+"s1_titletop.jpg") width="620" height="77" border="0" alt==($alt_s1_titletop)
+tr
+  td
+    table border="0" cellpadding="0" cellspacing="0" width="620"
+      tr
+        td
+          a href==($s2c1_title_left) target="_blank"
+            img src==(($abspath == true ? $srcAbs : $srcRel)+"s2c1_title_left.jpg") width="70" height="100" border="0" alt==($alt_s1_titletop_bk)
+        td
+          a href==($s2c2_title) target="_blank"
+            img src==(($abspath == true ? $srcAbs : $srcRel)+"s2c2_title.png") width="480" height="100" border="0" alt==($alt_s1_titletop_bk)
+        td
+          a href==($s2c3_title_right) target="_blank"
+            img src==(($abspath == true ? $srcAbs : $srcRel)+"s2c3_title_right.jpg") width="70" height="100" border="0" alt==($alt_s1_titletop_bk)
+tr
+  td
+    a href==($s3_title_bottom) target="_blank"
+      img src==(($abspath == true ? $srcAbs : $srcRel)+"s3_title_bottom.jpg") width="620" height="83" border="0" alt==($alt_s1_titletop_bk)
+tr
+  td width="620" height="27"
+tr
+  td valign="middle" align="center"
+    table border="0" cellpadding="0" cellspacing="0"
+      tr
+        td.lhn.m0auto.pr20.pl20.bdrs.vam height="38" valign="middle" align="center" bgcolor="#FF5400"
+          a.callprice href==($s3_callPrice) target="_blank"
+            img.di src==(($abspath == true ? $srcAbs : $srcRel)+"s_btn_arrow.png")
+            == $price_title[0]
+            span == $price_title[1]
+
+tr
+  / price_mb
+  td width="620" height="28"
+
+
+
+- $objso["count"].each_slice(2).each_with_index do |slice, i|
+  /! #ligne#{i + 1}
+  tr
+    td
+      table border="0" cellpadding="0" cellspacing="0" width="620"
+        tr
+          - slice.each do |item|
+            / pk1_ml
+            / td width="10" height="296"
+            == item[1] % 2 === 0 ? "<td width=\"10\" height=\"296\"></td>" : "<td width=\"8\" height=\"296\"></td>"
+            td
+              a href==(eval("$pk#{item[1]}_link")) target="_blank"
+                / = item[1] % 2 === 0
+                img src==(($abspath == true ? $srcAbs : $srcRel)+"s7_pk#{item[1]}.jpg") width="292" height="296" border="0" alt==($alt_pk1)
+            - if(item[1] % 2 === 0)
+              td width="8" height="296"
+            - else
+              td width="10" height="296"
+    / == item[1] % 2 === 0 ? "<tr><td height=\"30\"></td></tr>" : "<tr><td  height=\"0\"></td></tr>"
+
+    /! #######ENDligne#{i + 1}
+    tr
+      td
+        table border="0" cellpadding="0" cellspacing="0" width="620"
+          tr
+            - slice.each do |item|
+              td
+                table border="0" cellpadding="0" cellspacing="0" width="310"
+                  tr
+                    td align="center" valign="middle"
+                      a.pk_lib.txtcenter href==(eval("$pk#{item[1]}_link")) target="_blank"
+                        / == $objso["lib"]["fr"]["pk#{item[1]}"]
+                        == eval("$lib#{item[1]}")
+                        br
+                        span == eval("$lib#{item[1]}_")
+                        br
+                        b == eval("$price#{item[1]}")
+                  tr
+                    td
+                      table border="0" cellpadding="0" cellspacing="0" width="310"
+                        tr
+                          / pk1_btn_ml
+                          td width="112" height="24"
+                          td
+                            a href==(eval("$pk#{item[1]}_btn")) target="_blank"
+                              img src==(($abspath == true ? $srcAbs : $srcRel)+"s7_btn.png") width="86" height="24" border="0" alt==($alt_s7_btn)
+                          / pk1_btn_mr
+                          td width="112" height="24"
+
+    tr
+      td height="30"
+
+tr
+  / s10_btn_ray
+  td valign="middle" align="center"
+    table border="0" cellpadding="0" cellspacing="0"
+      tr
+        td.lhn.m0auto.pr20.pl20.bdrs.vam height="38" valign="middle" align="center" bgcolor="#FF5400"
+          a.callprice href==($s10_btn_ray) target="_blank"
+            img.di src==(($abspath == true ? $srcAbs : $srcRel)+"s_btn_arrow.png")
+            == $btn[0]
+            b == $btn[1]
+tr
+  td height="30"

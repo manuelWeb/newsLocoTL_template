@@ -1,0 +1,22 @@
+/ header
+-headertxtserv=["If the page does not come up, please ","click here"];
+tr
+  td align="center" style="padding-top :4px;"
+    p.lh-130.m0 style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold; color: #{$vartxtcolor};"
+      == ($objso["head_doc"]["uk"])
+tr
+  td align="center" valign="middle"
+    p.lh-130.m0 style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: #333333;"
+      =headertxtserv[0] 
+      a href==($mirorLink) target="_blank" style="color:#333333;"
+        strong
+          =headertxtserv[1]
+
+- if $objso["layout"]["addLogo"]
+  tr
+    td width="620" align="center"
+      table
+        tr
+          td.m0auto align="center" valign="bottom" height="60"
+            a href==($s0_logo) target="_blank"
+              img src==(($abspath == true ? $srcAbs : $srcRel)+"logo.png") width="180" height="52" border="0" alt==($alt_logo)
