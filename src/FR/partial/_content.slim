@@ -75,27 +75,34 @@ tr
         tr
           - slice.each do |item|
             / pk1_ml
-            == item[1] % 2 === 1 ? "<td width=\"5\"></td>" : "<td width=\"5\"></td>"
+            / == item[1] % 2 === 1 ? "<td width=\"5\" style=\"font-size: 10px;\">l1</td>" : "<td width=\"5\" style=\"font-size: 10px;\">l2</td>"
+            -if (item[1] % 2 === 1)
+              td
+                img src==(($abspath == true ? $srcAbs : $srcRel)+"s7_pk_L_shad.png") alt=""
+            - else
+              td
+                img src==(($abspath == true ? $srcAbs : $srcRel)+"s7_pk_L_shad.png") alt=""
+
             td
               a href==(eval("$pk#{item[1]}_link")) target="_blank"
                 img src==(($abspath == true ? $srcAbs : $srcRel)+"s7_pk#{item[1]}.jpg") width="300" height="247" border="0" alt==($alt_pk1)
             - if(item[1] % 2 === 1)
-              td width="5"
+              td width="5" style="font-size: 10px;"
+                img src==(($abspath == true ? $srcAbs : $srcRel)+"s7_pk_R_shad.png") alt=""
             - else
-              td width="5"
+              td width="5" style="font-size: 10px;"
+                img src==(($abspath == true ? $srcAbs : $srcRel)+"s7_pk_R_shad.png") alt=""
         // bottom shadow
         tr
           - slice.each do |item|
             / pk1_ml
-            == item[1] % 2 === 1 ? "<td width=\"5\" style=\"font-size: 10px;\">l1</td>" : "<td width=\"5\" style=\"font-size: 10px;\">l2</td>"
+            == item[1] % 2 === 1 ? "<td width=\"5\"></td>" : "<td width=\"5\"></td>"
             td height="10"
               img src==(($abspath == true ? $srcAbs : $srcRel)+"s7_pk_btm_shad.png") alt=""
             - if(item[1] % 2 === 1)
-              td width="5" style="font-size: 10px;"
-                | r1
+              td width="5"
             - else
-              td width="5" style="font-size: 10px;"
-                | r2
+              td width="5"
 
     /! #######ENDligne#{i + 1}
     tr

@@ -31,8 +31,8 @@
     "deux"  : 2,
     "trois" : 3,
     "quatre": 4,
-    "cinq": 5,
-    "six": 6
+    "cinq"  : 5,
+    "six"   : 6
   },
   "price_title": {
     "bf": ["&nbsp;Sélection à partir de ","6.95 €"],
@@ -80,6 +80,22 @@
       "fr": "6,90 €",
       "nl": "€6,90",
       "uk": "£6,90"
+    },
+    "pk5" : {
+      "bf": "6,90 €",
+      "bv": "€6,90",
+      "de": "€6,90",
+      "fr": "6,90 €",
+      "nl": "€6,90",
+      "uk": "£6,90"
+    },
+    "pk6" : {
+      "bf": "6,90 €",
+      "bv": "€6,90",
+      "de": "€6,90",
+      "fr": "6,90 €",
+      "nl": "€6,90",
+      "uk": "£6,90"
     }
   },
   "lib": {
@@ -95,73 +111,97 @@
       "pk1": "Dénoyauteur multifonctions",
       "pk2": "100 étiquettes fruits rouges",
       "pk3": "Kit pots de confitures 97 pièces",
-      "pk4": "2 étamines à confiture"
+      "pk4": "2 étamines à confiture",
+      "pk5": "2 étamines à confiture",
+      "pk6": "2 étamines à confiture"
     },
     "bf_": {
       "pk1": "Le dénoyauteur multi-fruits<br />",
       "pk2": "La touche finale pour vos confitures : une belle étiquette !",
       "pk3": "Les pots de confitures<br />se mettent sur leur 31 !",
-      "pk4": "Faites vos gelées chez vous, avec ces étamines !"
+      "pk4": "Faites vos gelées chez vous, avec ces étamines !",
+      "pk5": "Faites vos gelées chez vous, avec ces étamines !",
+      "pk6": "Faites vos gelées chez vous, avec ces étamines !"
     },
     "bv": {
       "pk1": "Multifunctionele ontpitter",
       "pk2": "100 etiketten rode vruchten",
       "pk3": "Jampottenkit 97 stuks",
-      "pk4": "Set van 2 neteldoeken"
+      "pk4": "Set van 2 neteldoeken",
+      "pk5": "Set van 2 neteldoeken",
+      "pk6": "Set van 2 neteldoeken"
     },
     "bv_": {
       "pk1": "De allroundontpitter",
       "pk2": "De final touch voor uw jam: een leuk etiket!",
       "pk3": "Jampotten in hun leukste jasje!",
-      "pk4": "Maak zelf vruchtengelei… met deze neteldoeken!"
+      "pk4": "Maak zelf vruchtengelei… met deze neteldoeken!",
+      "pk5": "Maak zelf vruchtengelei… met deze neteldoeken!",
+      "pk6": "Maak zelf vruchtengelei… met deze neteldoeken!"
     },
     "de": {
       "pk1": "Mehrzweck-Entsteiner",
       "pk2": "100 Etiketten Rote Früchte",
       "pk3": "Marmeladengläser-Set, 97-teilig",
-      "pk4": "2er-Set Passiertücher"
+      "pk4": "2er-Set Passiertücher",
+      "pk5": "2er-Set Passiertücher",
+      "pk6": "2er-Set Passiertücher"
     },
     "de_": {
       "pk1": "Mehrzweck-Obstentsteiner<br />",
       "pk2": "Der letzte Schliff für Ihre Konfitüren: Ein hübsches Etikett!",
       "pk3": "Die Marmeladengläser präsentieren sich im Festgewand!",
-      "pk4": "Gelee einkochen -<br />ganz traditionell"
+      "pk4": "Gelee einkochen -<br />ganz traditionell",
+      "pk5": "Gelee einkochen -<br />ganz traditionell",
+      "pk6": "Gelee einkochen -<br />ganz traditionell"
     },
     "fr": {
       "pk1": "Dénoyauteur multifonctions",
       "pk2": "100 étiquettes fruits rouges",
       "pk3": "Kit pots de confitures 97 pièces",
-      "pk4": "2 étamines à confiture"
+      "pk4": "2 étamines à confiture",
+      "pk5": "lib pk5",
+      "pk6": "lib pk6"
     },
     "fr_": {
       "pk1": "Le dénoyauteur multi-fruits<br />",
       "pk2": "La touche finale pour vos confitures : une belle étiquette !",
       "pk3": "Les pots de confitures<br />se mettent sur leur 31 !",
-      "pk4": "Faites vos gelées chez vous, avec ces étamines !"
+      "pk4": "Faites vos gelées chez vous, avec ces étamines !",
+      "pk5": "txt pk5",
+      "pk6": "txt pk6"
     },
     "nl": {
       "pk1": "Multifunctionele ontpitter",
       "pk2": "100 etiketten rode vruchten",
       "pk3": "Jampottenkit 97 stuks",
-      "pk4": "Set van 2 neteldoeken"
+      "pk4": "Set van 2 neteldoeken",
+      "pk5": "Set van 2 neteldoeken",
+      "pk6": "Set van 2 neteldoeken"
     },
     "nl_": {
       "pk1": "De allroundontpitter<br />",
       "pk2": "De final touch voor uw jam: een leuk etiket!",
       "pk3": "Jampotten<br />in hun leukste jasje!",
-      "pk4": "Maak zelf vruchtengelei… met deze neteldoeken!"
+      "pk4": "Maak zelf vruchtengelei… met deze neteldoeken!",
+      "pk5": "Maak zelf vruchtengelei… met deze neteldoeken!",
+      "pk6": "Maak zelf vruchtengelei… met deze neteldoeken!"
     },
     "uk": {
       "pk1": "Multifunctional Pitter",
       "pk2": "100 red berry labels",
       "pk3": "97 piece jam jar kit",
-      "pk4": "Set of 2 cheesecloths"
+      "pk4": "Set of 2 cheesecloths",
+      "pk5": "Set of 2 cheesecloths",
+      "pk6": "Set of 2 cheesecloths"
     },
     "uk_": {
       "pk1": "Pitter for small stone fruits",
       "pk2": "The final touch for your jams: a beautiful label!",
       "pk3": "Jam jars all dressed up to the nines!",
-      "pk4": "Make your own jelly!"
+      "pk4": "Make your own jelly!",
+      "pk5": "Make your own jelly!",
+      "pk6": "Make your own jelly!"
     }
   },
   "btn_pk": {
@@ -214,6 +254,22 @@
       "uk": "kitchen/dessert/97-piece-jam-jar-kit/3902111.html"
     },
     "pk4": {
+      "bf": "cuisine/dessert/2-etamines-a-confiture/5536016.html",
+      "bv": "keuken/nagerechten/set-van-2-neteldoeken/5536016.html",
+      "de": "kuche/nachtisch/2er-set-passiertucher/5536016.html",
+      "fr": "cuisine/dessert/etamines-lot-2/5536016.html",
+      "nl": "keuken/nagerechten/set-van-2-neteldoeken/5536016.html",
+      "uk": "kitchen/dessert/set-of-2-cheesecloths/5536016.html"
+    },
+    "pk5": {
+      "bf": "cuisine/dessert/2-etamines-a-confiture/5536016.html",
+      "bv": "keuken/nagerechten/set-van-2-neteldoeken/5536016.html",
+      "de": "kuche/nachtisch/2er-set-passiertucher/5536016.html",
+      "fr": "cuisine/dessert/etamines-lot-2/5536016.html",
+      "nl": "keuken/nagerechten/set-van-2-neteldoeken/5536016.html",
+      "uk": "kitchen/dessert/set-of-2-cheesecloths/5536016.html"
+    },
+    "pk6": {
       "bf": "cuisine/dessert/2-etamines-a-confiture/5536016.html",
       "bv": "keuken/nagerechten/set-van-2-neteldoeken/5536016.html",
       "de": "kuche/nachtisch/2er-set-passiertucher/5536016.html",
