@@ -1,8 +1,8 @@
 /### do not change
 -$mirorLink = "https://tempsl.com/Newsletters/miroir/#{$miror}/FR/index.htm"
 -$url       ="https://www.tempsl.fr/fr/";$urlCat ="https://www.tempsl.fr/cat/fr/"
-/ -$srcAbs  = "https://www.webdesignord.fr/domoti/TL/FR/images/"
 -$srcAbs    = "https://tempsl.com/Newsletters/miroir/News_#{$objso["campaignName"]}_#{$objso["date"]}/FR/images/"
+-$srcAbs  = "https://www.webdesignord.fr/domoti/TL/images/"
 -$index     ="index.aspx"
 -$srcmedium =["?utm_source=NL&utm_medium=email","&utm_source=NL&utm_medium=email"]
 -$content   =["&utm_content=","url","garantie","livraison","paiement","contact","desabo"]
@@ -16,8 +16,8 @@
   pk2: "#{$objso["url"]["fr"]}#{$objso["link"]["pk2"]["fr"]}",
   pk3: "#{$objso["url"]["fr"]}#{$objso["link"]["pk3"]["fr"]}",
   pk4: "#{$objso["url"]["fr"]}#{$objso["link"]["pk4"]["fr"]}",
-  pk5: "#{$objso["url"]["fr"]}#{$objso["link"]["pk4"]["fr"]}",
-  pk6: "#{$objso["url"]["fr"]}#{$objso["link"]["pk4"]["fr"]}",
+  pk5: "#{$objso["url"]["fr"]}#{$objso["link"]["pk5"]["fr"]}",
+  pk6: "#{$objso["url"]["fr"]}#{$objso["link"]["pk6"]["fr"]}",
   }
 
 / ### lib FR
@@ -62,6 +62,13 @@
 - $pk3_btn      = pdt[:pk3]+pdt[:gg]+"btn3"+$campaign
 - $pk4_link     = pdt[:pk4]+pdt[:gg]+"pdt4"+$campaign
 - $pk4_btn      = pdt[:pk4]+pdt[:gg]+"btn4"+$campaign
+- $pk3_btn      = pdt[:pk3]+pdt[:gg]+"btn3"+$campaign
+- $pk4_link     = pdt[:pk4]+pdt[:gg]+"pdt4"+$campaign
+- $pk4_btn      = pdt[:pk4]+pdt[:gg]+"btn4"+$campaign
+- $pk5_link     = pdt[:pk5]+pdt[:gg]+"pdt5"+$campaign
+- $pk5_btn      = pdt[:pk5]+pdt[:gg]+"btn5"+$campaign
+- $pk6_link     = pdt[:pk6]+pdt[:gg]+"pdt6"+$campaign
+- $pk6_btn      = pdt[:pk6]+pdt[:gg]+"btn6"+$campaign
 
 - $s10_btn_ray  = "#{urlRay}bouton#{$campaign}"
 

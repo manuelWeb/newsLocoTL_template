@@ -2,23 +2,23 @@
 tr
   td
     a href==($s2c2_title) target="_blank"
-      img src==(($abspath == true ? $srcAbs : $srcRel)+"s1_title.jpg") width="620" height="137" alt==($alt_s1_title)
+      img src==(($abspath == true ? $srcAbs : $srcRel)+"s1_title.jpg") width="620" height="131" alt==($alt_s1_title)
 tr
   td
     table border="0" cellpadding="0" cellspacing="0" width="620"
       tr
         td
           a href==($s2c2_title) target="_blank"
-            img src==(($abspath == true ? $srcAbs : $srcRel)+"s2c1_title.jpg") width="78" height="101" alt==($alt_s2c1_title)
+            img src==(($abspath == true ? $srcAbs : $srcRel)+"s2c1_title.jpg") width="75" height="110" alt==($alt_s2c1_title)
         td
           a href==($s2c2_title) target="_blank"
-            img src==(($abspath == true ? $srcAbs : $srcRel)+"s2c2_title.png") width="464" height="101" alt==($alt_s2c2_title)
+            img src==(($abspath == true ? $srcAbs : $srcRel)+"s2c2_title.png") width="470" height="110" alt==($alt_s2c2_title)
         td
           a href==($s2c2_title) target="_blank"
-            img src==(($abspath == true ? $srcAbs : $srcRel)+"s2c3_title.jpg") width="78" height="101" alt==($alt_s2c3_title)
+            img src==(($abspath == true ? $srcAbs : $srcRel)+"s2c3_title.jpg") width="75" height="110" alt==($alt_s2c3_title)
 tr
   td
-    img src==(($abspath == true ? $srcAbs : $srcRel)+"s3_title_mb.png") alt=""
+    img src==(($abspath == true ? $srcAbs : $srcRel)+"s3_title_mb.png") width="620" height="44" alt=""
 
 - if $objso["layout"]["addPromo"]
   tr
@@ -114,18 +114,24 @@ tr
                 table border="0" cellpadding="0" cellspacing="0" width="310"
                   tr
                     td.pl10.pr10 align="center" valign="middle"
-                      a.pk_lib.txtcenter href==(eval("$pk#{item[1]}_link")) target="_blank"
+                      a.pk_lib.txtcenter.tdn href==(eval("$pk#{item[1]}_link")) target="_blank"
                         == eval("$lib#{item[1]}")
                         br
                         span == eval("$lib#{item[1]}_")
                         br
+                        br
                         b == eval("$price#{item[1]}")
                   tr
+                    td height="5"
+                  tr
                     td align="center"
-                      table border="0" cellpadding="0" cellspacing="0" width="92"
+                      /  width="92"
+                      table border="0" cellpadding="0" cellspacing="0"
                         tr
-                          td.tac.lhn.m0auto.vam bgcolor="#EF0105" height="34" align="center" valign="middle" style="border-radius: 4px;"
-                            a.pkcta href==(eval("$pk#{item[1]}_btn")) target="_blank"
+                          td.tac.lhn.m0auto.vam.pr10.pl10 bgcolor="#FF1F00" height="34" align="center" valign="middle" style="border-radius: 4px;"
+                            a.pkcta.lh34.h34.dib.tdn href==(eval("$pk#{item[1]}_btn")) target="_blank"
+                              img.di src==(($abspath == true ? $srcAbs : $srcRel)+"cta_pk_arrow.png") width="9" height="16" alt=""
+                              | &nbsp;
                               == $btn_pk
 
     tr
@@ -135,9 +141,10 @@ tr
   td valign="middle" align="center"
     table border="0" cellpadding="0" cellspacing="0"
       tr
-        td.lhn.m0auto.pr20.pl20.vam height="52" valign="middle" align="center" bgcolor="#407D00"
-          a.callprice href==($s10_btn_ray) target="_blank"
-            img.di.pr10 src==(($abspath == true ? $srcAbs : $srcRel)+"s_btn_arrow.png")
+        td.lhn.m0auto.pr20.pl20.vam height="52" valign="middle" align="center" bgcolor="#FF1F00"
+          a.callprice.dib.lh52.h52.tdn href==($s10_btn_ray) target="_blank"
+            img.di src==(($abspath == true ? $srcAbs : $srcRel)+"s_btn_arrow.png")
+            | &nbsp;
             == $btn_ray
 tr
   td height="30"

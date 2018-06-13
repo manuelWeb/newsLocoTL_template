@@ -1,20 +1,20 @@
 {
   "date": "0618",
-  "campaignName": "confiture",
-  "campaignNameM": "confiture",
+  "campaignName" : "insectes",
+  "campaignNameM": "insectes",
   "title": {
-    "bf": "Avec TempsL, je réussis mes confitures !",
+    "bf": "STOP aux insectes ! Protégez-vous !",
     "bv": "Ontdek onze speciale confituur selectie!",
     "de": "Entdecken Sie schnell unsere Auswahl Marmelade!",
-    "fr": "Avec TempsL, je réussis mes confitures !",
+    "fr": "STOP aux insectes ! Protégez-vous !",
     "nl": "Ontdek onze speciale confituur selectie!",
     "uk": "Discover quickly our jam selection!"
   },
   "head_doc": {
-    "bf": "Avec TempsL, je réussis mes confitures !<br /> La confiture maison, ou l’art d’enfermer toutes les saveurs des fruits pour<br /> les tartiner toute l’année… sans modération ! <br />Un savoir-faire accessible à toutes, avec mes ustensiles malins qui vous aideront à réussir toutes vos recettes en 2 coups de cuillère !<br /> Découvrez toute notre sélection spéciale confitures !",
+    "bf": "Découvrez notre sélection pour lutter contre les insectes à partir de 5,95€.",
     "bv": "Mmm, de onnavolgbaar lekkere smaak van zelfgemaakte jam!<br /> Abrikozen, aardbeien, bosbessen, frambozen…<br /> Maar hoe maak je lekkere jam?<br /> Je hebt natuurlijk rijpe vruchten nodig,<br /> maar ook en vooral het juiste keukengerei!<br /> Ontdek onze speciale confituur selectie!",
     "de": "Ah... nichts schmeckt so gut wie selbstgemachte Konfitüre!<br /> Aprikosen, Erdbeeren, Blaubeeren, Himbeeren… Und wie gelingt unsere Konfitüre?<br />Natürlich durch die Auswahl von reifen Früchten, aber vor allem durch die Wahl der richtigen Utensilien!<br /> Entdecken Sie unsere ganze Auswahl speziell Marmelade!",
-    "fr": "Avec TempsL, je réussis mes confitures !<br /> La confiture maison, ou l’art d’enfermer toutes les saveurs des fruits pour<br /> les tartiner toute l’année… sans modération ! <br />Un savoir-faire accessible à toutes, avec mes ustensiles malins qui vous aideront à réussir toutes vos recettes en 2 coups de cuillère !<br /> Découvrez toute notre sélection spéciale confitures !",
+    "fr": "Découvrez notre sélection pour lutter contre les insectes à partir de 5,95€.",
     "nl": "Mmm, de onnavolgbaar lekkere smaak van zelfgemaakte jam!<br /> Abrikozen, aardbeien, bosbessen, frambozen…<br /> Maar hoe maak je lekkere jam?<br /> Je hebt natuurlijk rijpe vruchten nodig,<br /> maar ook en vooral het juiste keukengerei!<br /> Ontdek onze speciale confituur selectie!",
     "uk": "Ah, the inimitable taste of home-made jams!<br /> Apricots, strawberries, blueberries, raspberries, But how does one make good jams?<br /> Of course, by choosing ripe fruit but also with the right utensils!<br /> Discover our whole special jam selection!"
   },
@@ -22,7 +22,7 @@
     "bf": "1762",
     "bv": "1766",
     "de": "1765",
-    "fr": "1763",
+    "fr": "1769",
     "nl": "1761",
     "uk": "1764"
   },
@@ -53,7 +53,7 @@
       "bf": "14,95 €",
       "bv": "€14,95",
       "de": "€14,95",
-      "fr": "14,95 €",
+      "fr": "13.75 €",
       "nl": "€14,95",
       "uk": "£14,95"
     },
@@ -61,7 +61,7 @@
       "bf": "7,95 €",
       "bv": "€7,95",
       "de": "€7,95",
-      "fr": "7,95 €",
+      "fr": "7.99 €",
       "nl": "€7,95",
       "uk": "£7,95"
     },
@@ -69,7 +69,7 @@
       "bf": "7,95 €",
       "bv": "€7,95",
       "de": "€7,95",
-      "fr": "7,95 €",
+      "fr": "39.00 €",
       "nl": "€7,95",
       "uk": "£7,95"
     },
@@ -77,7 +77,7 @@
       "bf": "6,90 €",
       "bv": "€6,90",
       "de": "€6,90",
-      "fr": "6,90 €",
+      "fr": "12.90 €",
       "nl": "€6,90",
       "uk": "£6,90"
     },
@@ -85,7 +85,7 @@
       "bf": "6,90 €",
       "bv": "€6,90",
       "de": "€6,90",
-      "fr": "6,90 €",
+      "fr": "19.95 €",
       "nl": "€6,90",
       "uk": "£6,90"
     },
@@ -93,7 +93,7 @@
       "bf": "6,90 €",
       "bv": "€6,90",
       "de": "€6,90",
-      "fr": "6,90 €",
+      "fr": "6.90 €",
       "nl": "€6,90",
       "uk": "£6,90"
     }
@@ -156,20 +156,20 @@
       "pk6": "Gelee einkochen -<br />ganz traditionell"
     },
     "fr": {
-      "pk1": "Dénoyauteur multifonctions",
-      "pk2": "100 étiquettes fruits rouges",
-      "pk3": "Kit pots de confitures 97 pièces",
-      "pk4": "2 étamines à confiture",
-      "pk5": "lib pk5",
-      "pk6": "lib pk6"
+      "pk1": "Répulsif insectes",
+      "pk2": "Trappes à insectes",
+      "pk3": "Chasse mouche électrique ~~~~~~~~~~~~",
+      "pk4": "Diffuseur spirales anti insectes",
+      "pk5": "Lampe aspirante moustiques verte",
+      "pk6": "Boîte anti-fourmis ~~~~~~~~~~~~~~"
     },
     "fr_": {
-      "pk1": "Le dénoyauteur multi-fruits<br />",
-      "pk2": "La touche finale pour vos confitures : une belle étiquette !",
-      "pk3": "Les pots de confitures<br />se mettent sur leur 31 !",
-      "pk4": "Faites vos gelées chez vous, avec ces étamines !",
-      "pk5": "txt pk5",
-      "pk6": "txt pk6"
+      "pk1": "Des mois sans insectes même fenêtre entre-ouverte !",
+      "pk2": "Une riche idée pour se protéger des insectes !",
+      "pk3": "Dégoûtez définitivement les mouches ! ~~~~~~~~~~~~~~~~~~~~~~~~",
+      "pk4": "Une bonne odeur… qui fait fuir les moustiques !",
+      "pk5": "La vie est plus belle sans moustiques !",
+      "pk6": "Elle détruit les fourmis et... leur fourmilière !"
     },
     "nl": {
       "pk1": "Multifunctionele ontpitter",
@@ -216,7 +216,7 @@
     "bf": "Découvrez vite notre sélection confiture !",
     "bv": "Ontdek snel onze confituur selectie!",
     "de": "Entdecken Sie schnell unsere Auswahl Marmelade!",
-    "fr": "Découvrez vite notre sélection confiture !",
+    "fr": "Découvrez notre sélection Chasse aux Insectes",
     "nl": "Ontdek snel onze confituur selectie!",
     "uk": "Discover quickly our jam selection!"
   },
@@ -233,7 +233,7 @@
       "bf": "cuisine/ustensiles-cuisine/denoyauteur-multifonctions/3979010.html",
       "bv": "keuken/keukengerei/multifunctionele-ontpitter/3979010.html",
       "de": "kuche/kuchenutensilien/mehrzweck-entsteiner/3979010.html",
-      "fr": "cuisine/ustensiles-cuisine/denoyauteur-multifonctions/3979010.html",
+      "fr": "loisirs/insectes-nuisibles/repulsif-insectes/4240016.html",
       "nl": "keuken/keukengerei/multifunctionele-ontpitter/3979010.html",
       "uk": "kitchen/kitchenware/multifunctional-pitter/3979010.html"
     },
@@ -241,7 +241,7 @@
       "bf": "cuisine/boites-cuisine/100-etiquettes-fruits-rouges/3914116.html",
       "bv": "keuken/dozen-voor-keuken/100-etiketten-rode-vruchten/3914116.html",
       "de": "kuche/kuchendosen/100-etiketten-rote-fruchte/3914116.html",
-      "fr": "cuisine/boites-cuisine/100-etiquettes-fruits-rouges/3914116.html",
+      "fr": "loisirs/insectes-nuisibles/trappes-a-insectes-lot-2/1662212.html",
       "nl": "keuken/dozen-voor-keuken/100-etiketten-rode-vruchten/3914116.html",
       "uk": "kitchen/storage-boxes/100-red-berry-labels/3914116.html"
     },
@@ -249,7 +249,7 @@
       "bf": "cuisine/dessert/kit-pots-confitures-97-pieces/3902111.html",
       "bv": "keuken/nagerechten/jampottenkit-97-stuks/3902111.html",
       "de": "kuche/nachtisch/marmeladenglaser-set-97-teilig/3902111.html",
-      "fr": "cuisine/dessert/kit-pots-confitures-97-pieces/3902111.html",
+      "fr": "loisirs/insectes-nuisibles/chasse-mouche-electrique/4313318.html",
       "nl": "keuken/nagerechten/jampottenkit-97-stuks/3902111.html",
       "uk": "kitchen/dessert/97-piece-jam-jar-kit/3902111.html"
     },
@@ -257,7 +257,7 @@
       "bf": "cuisine/dessert/2-etamines-a-confiture/5536016.html",
       "bv": "keuken/nagerechten/set-van-2-neteldoeken/5536016.html",
       "de": "kuche/nachtisch/2er-set-passiertucher/5536016.html",
-      "fr": "cuisine/dessert/etamines-lot-2/5536016.html",
+      "fr": "loisirs/insectes-nuisibles/diffuseur-spirales-anti-insectes-2-recharges/1872118.html",
       "nl": "keuken/nagerechten/set-van-2-neteldoeken/5536016.html",
       "uk": "kitchen/dessert/set-of-2-cheesecloths/5536016.html"
     },
@@ -265,7 +265,7 @@
       "bf": "cuisine/dessert/2-etamines-a-confiture/5536016.html",
       "bv": "keuken/nagerechten/set-van-2-neteldoeken/5536016.html",
       "de": "kuche/nachtisch/2er-set-passiertucher/5536016.html",
-      "fr": "cuisine/dessert/etamines-lot-2/5536016.html",
+      "fr": "loisirs/insectes-nuisibles/lampe-aspirante-moustiques-verte/4005112.html",
       "nl": "keuken/nagerechten/set-van-2-neteldoeken/5536016.html",
       "uk": "kitchen/dessert/set-of-2-cheesecloths/5536016.html"
     },
@@ -273,7 +273,7 @@
       "bf": "cuisine/dessert/2-etamines-a-confiture/5536016.html",
       "bv": "keuken/nagerechten/set-van-2-neteldoeken/5536016.html",
       "de": "kuche/nachtisch/2er-set-passiertucher/5536016.html",
-      "fr": "cuisine/dessert/etamines-lot-2/5536016.html",
+      "fr": "loisirs/insectes-nuisibles/boite-anti-fourmis/7606312.html",
       "nl": "keuken/nagerechten/set-van-2-neteldoeken/5536016.html",
       "uk": "kitchen/dessert/set-of-2-cheesecloths/5536016.html"
     }
@@ -292,7 +292,7 @@
     "topShad" : false,
     "shadLR"  : false,
     "shadLR_H": "1140",
-    "abspath" : false
+    "abspath" : true
   },
   "url": {
     "bf": "https://www.ideal-pratique.be/befr/",

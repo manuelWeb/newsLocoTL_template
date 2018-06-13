@@ -8,8 +8,12 @@ module.exports = function () {
     return Promise.all([
       new Promise(function (resolve, reject) {
         gulp.src('render/**/*.html')
-        .pipe(premailer())
+        .pipe(premailer({
+            // escape_url_attributes: false,
+            // replace_html_entities: false
+        }))
         .pipe(replace(/&amp;/g, '&'))
+        .pipe(replace(/~/g, '&nbsp;'))
         .pipe(gulp.dest('render'))
         // .pipe(bs.stream())
         .on('end', resolve)

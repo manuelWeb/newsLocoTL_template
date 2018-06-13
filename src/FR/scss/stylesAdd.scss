@@ -5,13 +5,14 @@ $vartxtcolor: #DF131F;
 .pt10 {padding-top: 10px;} .pr10 {padding-right: 10px;} .pb10 {padding-bottom: 10px;} .pl10 {padding-left: 10px;}
 .pt20 {padding-top: 20px;} .pr20 {padding-right: 20px;} .pb20 {padding-bottom: 20px;} .pl20 {padding-left: 20px;}
 .bdall1 {border-top: 1px solid #0070B9; border-right: 1px solid #0070B9; border-bottom: 1px solid #0070B9; border-left: 1px solid #0070B9;}
-.altarial {font-family: Arial, sans-serif; color: #222222;}
+.altarial {font-family: Arial, Helvetica, sans-serif; color: #222222;}
 .foocode {font-size: 16px; color: #0070BB;}
 .lhn {line-height: normal; }
 .db {display: block;}
 .di {display: inline;}
 .bdrs {border-radius: 3px;}
 .vam {vertical-align: middle;}
+a { color: inherit; text-decoration: none; mso-line-height-rule: exactly; }
 // orange bug fixe va middle
 // header
 .header {margin: 0; padding-top: 5px;}
@@ -19,53 +20,58 @@ $vartxtcolor: #DF131F;
 // news
 .promolib {
   line-height: 30px;
-  font-family: Arial, sans-serif; font-size: 24px; font-weight: 400;
+  font-family: Arial, Helvetica, sans-serif; font-size: 24px; font-weight: 400;
   color: #EF0105;
   span {font-size: 18px; color: #222222; font-weight: 100;}
 }
 .promoprice {
   text-align: right;
-  font-family: Arial, sans-serif; color: #222222;
+  font-family: Arial, Helvetica, sans-serif; color: #222222;
 }
 .promoprice_crossed { font-size: 21px;}
 .promoprice { font-size: 28px; }
 .callprice {
   margin: 0 auto;
-  font-family: Arial, sans-serif; font-size: 24px;
+  font-family: Arial, Helvetica, sans-serif; font-size: 24px;
   font-weight: 300;
   text-align: center; text-decoration: none;
   color: #FFFFFF;
 }
 .promolib, .promoprice {
   a {
-    text-decoration: none; color: #EF0105;
+    color: #EF0105;
     span { color: #222222;}
     b {color: #222222;}
   }
 }
 .pk_lib {
-  line-height: 30px; text-decoration: none;
-  color: #EF0105;
-  font-family: Arial, sans-serif;
-  font-size: 20px;
+  line-height: 20px;
+  color: #B61806;
+  font-family: Arial, Helvetica, sans-serif; font-size: 21px; font-weight: bold;
   text-align: center;
   span {
     color: #222;
-    font-family: Arial, sans-serif;
-    font-size: 16px; text-align: center; line-height: 20px;
+    font-family: Arial, Helvetica, sans-serif; font-size: 16px; font-weight: normal;
+    text-align: center; line-height: 20px;
     font-weight: normal;
   }
   b {
     color: #222;
-    font-family: Arial, sans-serif;
-    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px; font-weight: bold;
     text-align: center;
   }
 }
-
+.tdn {text-decoration: none; outline: none;}
+.lh34 {line-height: 34px;}
+.h34 {height: 34px;}
+.lh52 {line-height: 52px;}
+.h52 {height: 52px;}
+.dtc {display: table-cell;}
+.dib {display: inline-block;}
 .pkcta {
-  font-family: Arial, sans-serif;
-  font-size: 18px; font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px; font-weight: bold;
   color: #FFFFFF;
   text-align: center;
   text-decoration: none;
@@ -73,14 +79,14 @@ $vartxtcolor: #DF131F;
 }
 // à nettoyer
 body {width: 100%; margin: 0; line-height: 121%; background-color: $varbgcolor;}
-img {display: block; font-family: Arial, sans-serif; font-size: 16px;}
+img {display: block; font-family: Arial, Helvetica, sans-serif; font-size: 16px;}
 table td {border-collapse: collapse;}
 td {line-height: 1px; font-size: 1px;}
 td font, td span{ line-height: normal;}
 td img {display: block; line-height: normal; }
 .w100 {width: 100%;}
 .bg-color {background-color: $varbgcolor;}
-.teaserText, .logo {font-family: Arial, sans-serif; font-weight: bold; font-size: 30px; text-align: center; line-height: 100%;}
+.teaserText, .logo {font-family: Arial, Helvetica, sans-serif; font-weight: bold; font-size: 30px; text-align: center; line-height: 100%;}
 .logo {text-align: left; color: #E2144D;}
 .teaserText {font-size: 36px; line-height: 38px;color: $vartxtcolor; text-align: center;}
 .selBtn {font-size: 21px; line-height: 28px;color: $vartxtcolor; text-align: center;}
