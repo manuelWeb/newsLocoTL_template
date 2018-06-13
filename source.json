@@ -158,17 +158,17 @@
     "fr": {
       "pk1": "Répulsif insectes",
       "pk2": "Trappes à insectes",
-      "pk3": "Chasse mouche électrique ~~~~~~~~~~~~",
+      "pk3": "Chasse mouche électrique<br />",
       "pk4": "Diffuseur spirales anti insectes",
       "pk5": "Lampe aspirante moustiques verte",
-      "pk6": "Boîte anti-fourmis ~~~~~~~~~~~~~~"
+      "pk6": "Boîte anti-fourmis<br />"
     },
     "fr_": {
       "pk1": "Des mois sans insectes même fenêtre entre-ouverte !",
       "pk2": "Une riche idée pour se protéger des insectes !",
-      "pk3": "Dégoûtez définitivement les mouches ! ~~~~~~~~~~~~~~~~~~~~~~~~",
+      "pk3": "Dégoûtez définitivement les mouches !<br />",
       "pk4": "Une bonne odeur… qui fait fuir les moustiques !",
-      "pk5": "La vie est plus belle sans moustiques !",
+      "pk5": "La vie est plus belle sans moustiques !<br />",
       "pk6": "Elle détruit les fourmis et... leur fourmilière !"
     },
     "nl": {
