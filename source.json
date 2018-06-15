@@ -85,7 +85,7 @@
       "bf": "6,90 €",
       "bv": "€6,90",
       "de": "€6,90",
-      "fr": "19.95 €",
+      "fr": "12.95 €",
       "nl": "€6,90",
       "uk": "£6,90"
     },
@@ -93,7 +93,7 @@
       "bf": "6,90 €",
       "bv": "€6,90",
       "de": "€6,90",
-      "fr": "6.90 €",
+      "fr": "5.95 €",
       "nl": "€6,90",
       "uk": "£6,90"
     }
@@ -160,16 +160,16 @@
       "pk2": "Trappes à insectes",
       "pk3": "Chasse mouche électrique<br />",
       "pk4": "Diffuseur spirales anti insectes",
-      "pk5": "Lampe aspirante moustiques verte",
-      "pk6": "Boîte anti-fourmis<br />"
+      "pk5": "Plante de Neptune",
+      "pk6": "Plaquette anti fourmis"
     },
     "fr_": {
       "pk1": "Des mois sans insectes même fenêtre entre-ouverte !",
       "pk2": "Une riche idée pour se protéger des insectes !",
       "pk3": "Dégoûtez définitivement les mouches !<br />",
       "pk4": "Une bonne odeur… qui fait fuir les moustiques !",
-      "pk5": "La vie est plus belle sans moustiques !<br />",
-      "pk6": "Elle détruit les fourmis et... leur fourmilière !"
+      "pk5": "Un phénomène de la nature,<br /> la \"plante de Neptune\"",
+      "pk6": "Pour stopper net l’invasion des fourmis<br />"
     },
     "nl": {
       "pk1": "Multifunctionele ontpitter",
@@ -265,7 +265,7 @@
       "bf": "cuisine/dessert/2-etamines-a-confiture/5536016.html",
       "bv": "keuken/nagerechten/set-van-2-neteldoeken/5536016.html",
       "de": "kuche/nachtisch/2er-set-passiertucher/5536016.html",
-      "fr": "loisirs/insectes-nuisibles/lampe-aspirante-moustiques-verte/4005112.html",
+      "fr": "loisirs/insectes-nuisibles/plante-neptune/7347016.html",
       "nl": "keuken/nagerechten/set-van-2-neteldoeken/5536016.html",
       "uk": "kitchen/dessert/set-of-2-cheesecloths/5536016.html"
     },
@@ -273,7 +273,7 @@
       "bf": "cuisine/dessert/2-etamines-a-confiture/5536016.html",
       "bv": "keuken/nagerechten/set-van-2-neteldoeken/5536016.html",
       "de": "kuche/nachtisch/2er-set-passiertucher/5536016.html",
-      "fr": "loisirs/insectes-nuisibles/boite-anti-fourmis/7606312.html",
+      "fr": "loisirs/insectes-nuisibles/plaquette-anti-fourmis/0557314.html",
       "nl": "keuken/nagerechten/set-van-2-neteldoeken/5536016.html",
       "uk": "kitchen/dessert/set-of-2-cheesecloths/5536016.html"
     }
@@ -292,7 +292,7 @@
     "topShad" : false,
     "shadLR"  : false,
     "shadLR_H": "1140",
-    "abspath" : true
+    "abspath" : false
   },
   "url": {
     "bf": "https://www.ideal-pratique.be/befr/",
