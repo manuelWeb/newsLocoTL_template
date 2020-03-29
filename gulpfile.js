@@ -1,7 +1,5 @@
 // import img from './tasks/img'
 // require("./tasks/img.js").default();
-// const gulp = require('gulp')
-// import { src, dest, watch, parallel, series } from 'gulp';
 
 // import { img } from './tasks/img';
 // export const img = () => {
@@ -45,17 +43,6 @@
 //   });
 // });
 
-
-// browser-sync task !attention index.html obligatoire
-// gulp.task('bs', function () {
-//   bs.init({
-//     server: {
-//       baseDir: 'render/FR',
-//       index: 'index.html'
-//     }
-//   })
-// });
-
 // const reportChange = (event) => {
 //   console.log("\x1b[30m\x1b[43m%s\x1b[0m", `File: ${event.path}, type was ${event.type}, running tasks...`);
 // };
@@ -71,44 +58,41 @@
 //   gulp.watch(src + '**/images/*.{png,jpg,gif}', ['img']).on('change', reportChange);
 // })
 const { series, parallel, src, dest } = require('gulp');
-const TaskLogger = require('gulp-task-logger')
 const rimraf = require('rimraf')
+const browserSync = require('browser-sync').create()
 const slim = require("gulp-slim");
 const foreach = require("gulp-foreach");
 const rename = require('gulp-rename');
-const tlg = new TaskLogger();
+const sass = require('./tasks/sass').sass
+const premailer = require('./tasks/premailer')
 
-// function clean(done) {
-//   rimraf('./render', function (cb) {
-//     console.log('render is destroyed : clean is over.\nlet\'s work on clean folder!');
-//   })
-//   done()
-// }
+console.log(sass());
 
-// const clean = (done) => {
-//   rimraf('./render', function () {
-//     // if (!done) tlg.task('clean').startLog();
-//     console.log(`render is dead let's work on clean foler.`);
-//   })
-//   done()
-// }
+// browser-sync task !mandatory index.html
+function bs() {
+  browserSync.init({
+    server: {
+      baseDir: './render/FR',
+      index: 'index.html'
+    }
+  })
+}
+// to use from cli gulp bs
+exports.bs = bs
+
 let endSignal = false
 function log(message) {
   console.log(message);
 }
 
 async function rm() {
-  // rimraf.sync('./render')
   await Promise.resolve(
     endSignal = true,
     rimraf.sync('./render'),
-    // rimraf('./render', function () {
-    //   console.log('rmIsOkiDonki…');
-    // }),
     log(`render is removed let's work on clean foler.`)
   )
 }
-exports.rm = rm
+// exports.rm = rm
 
 function img() {
   return src('src/**/images/*.{png,jpg,gif}')
@@ -131,13 +115,10 @@ function slim2html() {
     .pipe(foreach(function (stream, file) {
       console.log(file.path.substr(file.path.lastIndexOf('/') - 2));
 
-      // var fileName = file.path.substr(file.path.lastindexof("\\") - 2);
-      // var myregex = fileName.replace(/(.+?)\\.+/, "$1");
-      // console.log('myregex ' + myregex + '\n fileName ' + fileName + '\n file.path ' + file.path)
       return stream
-      // .pipe(bs.stream()) // cf premailer task
     }))
     .pipe(dest('render'))
+    .pipe(browserSync.stream()) // cf premailer task
 }
 
 // exports.dev = series(
@@ -147,7 +128,9 @@ function slim2html() {
 exports.dev = series(
   rm,
   img,
-  slim2html
+  slim2html,
+  sass,
+  bs
 )
 // module.exports = {
 //   default: series(clean, img)
