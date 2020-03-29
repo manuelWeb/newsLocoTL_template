@@ -1,7 +1,7 @@
 / mentions
 -contacttxt=["Contact us","."]
 -desabotxt=["Click here to ","unsubscribe","."]
--CGVtxt=["Please click through for our terms &amp; conditions of purchase ","on this page",".","©2018 - Ideal Practical - ORDER SOLUTIONS - PO BOX 787 SOUTHALL UB3 9TS."]
+-_CGVtxt=["Please click through for our terms &amp; conditions of purchase ","on this page",".","©2018 - Ideal Practical - ORDER SOLUTIONS - PO BOX 787 SOUTHALL UB3 9TS."]
 
 - if $objso["mention_plus"]["uk"] != ""
   tr
@@ -24,9 +24,9 @@ tr
         ==desabotxt[1]
       ==desabotxt[2]
       br
-      ==CGVtxt[0]
+      ==_CGVtxt[0]
       a href==$lCGV target="_blank" style="color: #333333; text-decoration: underline;"
-        strong ==CGVtxt[1]
-      ==CGVtxt[2]
+        strong ==_CGVtxt[1]
+      ==_CGVtxt[2]
       br
-      ==CGVtxt[3]
+      ==_CGVtxt[3]

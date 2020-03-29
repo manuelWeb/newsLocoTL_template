@@ -71,10 +71,12 @@
 //   gulp.watch(src + '**/images/*.{png,jpg,gif}', ['img']).on('change', reportChange);
 // })
 const { series, parallel, src, dest } = require('gulp');
+const TaskLogger = require('gulp-task-logger')
 const rimraf = require('rimraf')
 const slim = require("gulp-slim");
 const foreach = require("gulp-foreach");
 const rename = require('gulp-rename');
+const tlg = new TaskLogger();
 
 // function clean(done) {
 //   rimraf('./render', function (cb) {
@@ -82,17 +84,41 @@ const rename = require('gulp-rename');
 //   })
 //   done()
 // }
-const img = () => {
-  console.log('img is ready');
+
+// const clean = (done) => {
+//   rimraf('./render', function () {
+//     // if (!done) tlg.task('clean').startLog();
+//     console.log(`render is dead let's work on clean foler.`);
+//   })
+//   done()
+// }
+let endSignal = false
+function log(message) {
+  console.log(message);
+}
+
+async function rm() {
+  // rimraf.sync('./render')
+  await Promise.resolve(
+    endSignal = true,
+    rimraf.sync('./render'),
+    // rimraf('./render', function () {
+    //   console.log('rmIsOkiDonki…');
+    // }),
+    log(`render is removed let's work on clean foler.`)
+  )
+}
+exports.rm = rm
+
+function img() {
   return src('src/**/images/*.{png,jpg,gif}')
     .pipe(dest('render'))
+    .on('end', function () {
+      log(`img folder are created ${endSignal}`)
+    })
+}
+exports.img = img
 
-}
-const clean = () => {
-  rimraf('./render', function () {
-    console.log('render is destroyed : clean is over.\nlet\'s work on clean folder!');
-  })
-}
 
 function slim2html() {
   return src('src/**/slim/*.slim')
@@ -103,8 +129,10 @@ function slim2html() {
       path.dirname += "/../";
     }))
     .pipe(foreach(function (stream, file) {
-      var fileName = file.path.substr(file.path.lastIndexOf("\\") - 2);
-      var myregex = fileName.replace(/(.+?)\\.+/, "$1");
+      console.log(file.path.substr(file.path.lastIndexOf('/') - 2));
+
+      // var fileName = file.path.substr(file.path.lastindexof("\\") - 2);
+      // var myregex = fileName.replace(/(.+?)\\.+/, "$1");
       // console.log('myregex ' + myregex + '\n fileName ' + fileName + '\n file.path ' + file.path)
       return stream
       // .pipe(bs.stream()) // cf premailer task
@@ -112,8 +140,14 @@ function slim2html() {
     .pipe(dest('render'))
 }
 
-exports.build = series(
-  img
+// exports.dev = series(
+//   clean,
+//   img
+// )
+exports.dev = series(
+  rm,
+  img,
+  slim2html
 )
 // module.exports = {
 //   default: series(clean, img)
