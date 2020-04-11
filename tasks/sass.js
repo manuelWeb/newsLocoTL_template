@@ -46,7 +46,7 @@ function sass() {
   //     })
 
 }
-sass()
+
 exports.sass = sass
 
 // attention sass et dépendant de slim du fait de l'injection des styles en ligne de premailer et ce dans chaque country/index.html. Pour cette raison le watch de scss/**/*.scss est inclut au watch de slim.
