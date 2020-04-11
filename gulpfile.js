@@ -66,7 +66,7 @@ const rename = require('gulp-rename');
 const sass = require('./tasks/sass').sass
 const premailer = require('./tasks/premailer')
 
-console.log(sass());
+sass()
 
 // browser-sync task !mandatory index.html
 function bs() {

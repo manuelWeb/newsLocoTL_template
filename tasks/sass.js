@@ -4,7 +4,6 @@ var autoprefixer = require('gulp-autoprefixer');
 var rename = require('gulp-rename');
 
 // Promise
-// module.exports = function sass() {
 function sass() {
 
   // gulp.src('src/**/scss/*.scss')
