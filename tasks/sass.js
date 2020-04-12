@@ -1,30 +1,35 @@
-var gulp = require("gulp");
+var { src, dest } = require("gulp");
 var gulpSass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
 var rename = require('gulp-rename');
 
 // Promise
-function sass() {
-
-  // gulp.src('src/**/scss/*.scss')
-  //   .pipe(gulpSass({ errLogToConsole: true }))
-  //   .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
-  //   .pipe(rename(function (path) {
-  //     path.dirname += "/../css";
-  //   }))
-  //   .pipe(gulp.dest('render'))
+function sass(cb) {
 
   const promise1 = new Promise(function (resolve, reject) {
+    src('src/**/scss/*.scss')
+      .pipe(gulpSass({ errLogToConsole: true }))
+      .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
+      .pipe(rename(function (path) {
+        path.dirname += "/../css";
+      }))
+      .pipe(dest('render'))
+
     setTimeout(function () {
-      resolve('foo');
-    }, 3000);
+      resolve('i\'m before sass promise cb');
+    }, 0);
 
   })
   promise1.then(function (value) {
     console.log(value);
-    // expected output: "foo"
+    // expected output: "i\'m before sass promise cb"
+    cb(console.log('it\'s ok for sass'));
   });
-  console.log(promise1);
+
+
+}
+
+exports.sass = sass
 
   //   return Promise.all([
   //     new Promise(function (resolve, reject) {
@@ -43,9 +48,5 @@ function sass() {
   // pas de rendu HTML !!!`)
   //       // gulp.start('premailer');
   //     })
-
-}
-
-exports.sass = sass
 
 // attention sass et dépendant de slim du fait de l'injection des styles en ligne de premailer et ce dans chaque country/index.html. Pour cette raison le watch de scss/**/*.scss est inclut au watch de slim.

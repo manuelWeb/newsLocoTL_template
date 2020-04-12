@@ -60,13 +60,18 @@
 const { series, parallel, src, dest } = require('gulp');
 const rimraf = require('rimraf')
 const browserSync = require('browser-sync').create()
-const slim = require("gulp-slim");
-const foreach = require("gulp-foreach");
-const rename = require('gulp-rename');
-const sass = require('./tasks/sass').sass
-const premailer = require('./tasks/premailer')
+// const slim = require("gulp-slim");
+const { slim2html } = require('./tasks/slim')
+// const { sass } = require('./tasks/sass')
+const { sass } = require('./tasks/sass')
+const { inlineCss } = require('./tasks/inlineCss')
 
-sass()
+exports.sass = sass
+// use sass task from cli: gulp sass
+exports.slim2html = slim2html
+// use sass task from cli: gulp slim2html
+exports.inlineCss = inlineCss
+// use sass task from cli: gulp inlineCss
 
 // browser-sync task !mandatory index.html
 function bs() {
@@ -92,39 +97,18 @@ async function rm() {
     log(`render is removed let's work on clean foler.`)
   )
 }
-// exports.rm = rm
+// use as cli gulp rm
+exports.rm = rm
 
 function img() {
   return src('src/**/images/*.{png,jpg,gif}')
     .pipe(dest('render'))
     .on('end', function () {
-      log(`img folder are created ${endSignal}`)
+      log(`img folder are created? ${endSignal}`)
     })
 }
 exports.img = img
 
-
-function slim2html() {
-  return src('src/**/slim/*.slim')
-    .pipe(slim({
-      options: "encoding='utf-8'"
-    }))
-    .pipe(rename(function (path) {
-      path.dirname += "/../";
-    }))
-    .pipe(foreach(function (stream, file) {
-      console.log(file.path.substr(file.path.lastIndexOf('/') - 2));
-
-      return stream
-    }))
-    .pipe(dest('render'))
-    .pipe(browserSync.stream()) // cf premailer task
-}
-
-// exports.dev = series(
-//   clean,
-//   img
-// )
 exports.dev = series(
   rm,
   img,
