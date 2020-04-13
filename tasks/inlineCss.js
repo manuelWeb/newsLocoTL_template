@@ -1,42 +1,34 @@
 const { src, dest } = require('gulp')
 const cssToInline = require('gulp-inline-css');
+const foreach = require("gulp-foreach");
+const browserSync = require('browser-sync').create()
 
 function inlineCss(cb) {
   const promise1 = new Promise(function (resolve, reject) {
+
     src('render/**/*.html')
       .pipe(cssToInline({}))
       .pipe(dest('render'))
+      .pipe(browserSync.stream())
+    // .pipe(foreach(function (stream, file) {
+    //   // console.log(file.path.substr(file.path.lastIndexOf('/') - 2));
+    //   // return stream
+    // }))
 
-    setTimeout(function () {
-      resolve('i\'m before cssToInline promise cb');
+    setTimeout(function (stream) {
+      resolve(`i\'m before cssToInline promise cb ${stream}`);
     }, 0);
 
   })
   promise1.then(function (value) {
     console.log(value);
     // expected output: "i\'m before cssToInline promise cb"
-    cb(console.log('it\'s ok for cssToInline'));
+    cb(console.log(`it\'s ok for cssToInline`));
   });
 }
 
 exports.inlineCss = inlineCss
 
-// const promise1 = new Promise(function (resolve, reject) {
-//   console.log('start inilined');
-
-//   src('render/**/*.html')
-//     .pipe(inlineCss({}))
-//     .pipe(dest('render'))
-
-//   setTimeout(function () {
-//     resolve('i\'m before inlineCss promise cb');
-//   }, 0);
-
-// })
-// promise1.then(function (value) {
-//   console.log(value);
-//   cb(console.log('it\'s ok for inlineCss'));
-// })
 
   // promise = start prettify
   // gulp.task('premailer', function () {

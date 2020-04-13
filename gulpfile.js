@@ -57,11 +57,12 @@
 //   gulp.watch(['source.json', src + '**/**/*.slim', src + '**/scss/*.scss'], ['slim']).on('change', reportChange);
 //   gulp.watch(src + '**/images/*.{png,jpg,gif}', ['img']).on('change', reportChange);
 // })
-const { series, parallel, src, dest } = require('gulp');
+const { gulp, series, parallel, src, dest, watch } = require('gulp');
 const rimraf = require('rimraf')
 const browserSync = require('browser-sync').create()
 // const slim = require("gulp-slim");
 const { slim2html } = require('./tasks/slim')
+const { slim2html_ } = require('./tasks/slim2html')
 // const { sass } = require('./tasks/sass')
 const { sass } = require('./tasks/sass')
 const { inlineCss } = require('./tasks/inlineCss')
@@ -69,6 +70,7 @@ const { inlineCss } = require('./tasks/inlineCss')
 exports.sass = sass
 // use sass task from cli: gulp sass
 exports.slim2html = slim2html
+exports.slim2html_ = slim2html_
 // use sass task from cli: gulp slim2html
 exports.inlineCss = inlineCss
 // use sass task from cli: gulp inlineCss
@@ -109,13 +111,35 @@ function img() {
 }
 exports.img = img
 
-exports.dev = series(
-  rm,
-  img,
-  slim2html,
-  sass,
+const compile = series(
+  rm, img,
+  sass, slim2html, inlineCss,
   bs
 )
-// module.exports = {
-//   default: series(clean, img)
-// }
+compile.description = 'compile all sources'
+exports.compile = compile
+
+// exports.dev = series( rm, img, slim2html, sass, bs, cssWatch )
+
+const imgWatch = () => {
+  watch(['src/**/images/*.{png,jpg,gif}'], series(img, slim2html))
+}
+const cssWatch = () => {
+  // watch(['src/**/slim/*.slim'], series(slim2html, sass, inlineCss)).on('change', (stream) => console.log(stream))
+  watch(['src/**/slim/*.slim']).on('change',
+    (stream) => {
+      slim2html_(stream)
+    }
+  )
+  watch(['src/**/scss/*.scss'], series(sass, slim2html, inlineCss)).on('change', function (stream) {
+    console.log(`sass change ${stream}`)
+  })
+  // watch('render/FR/index.html').on('change', browserSync.reload)
+}
+exports.imgWatch = imgWatch
+exports.cssWatch = cssWatch
+const watchall = parallel(imgWatch, cssWatch)
+exports.watchall = watchall
+
+const start = parallel(compile, watchall)
+exports.start = start
