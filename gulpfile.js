@@ -57,12 +57,29 @@
 //   gulp.watch(['source.json', src + '**/**/*.slim', src + '**/scss/*.scss'], ['slim']).on('change', reportChange);
 //   gulp.watch(src + '**/images/*.{png,jpg,gif}', ['img']).on('change', reportChange);
 // })
+// const path = require('path');
+const fs = require('fs');
+// const renderDir = path.join(__dirname, 'render')
+
+function getFiles(dir, files_) {
+  files_ = files_ || [];
+  var files = fs.readdirSync(dir);
+  for (var i in files) {
+    var name = dir + '/' + files[i];
+    if (fs.statSync(name).isDirectory()) {
+      getFiles(name, files_);
+    } else {
+      files_.push(name);
+    }
+  }
+  return files_;
+}
 const { gulp, series, parallel, src, dest, watch } = require('gulp');
 const rimraf = require('rimraf')
 const browserSync = require('browser-sync').create()
 // const slim = require("gulp-slim");
 const { slim2html } = require('./tasks/slim')
-const { slim2html_ } = require('./tasks/slim2html')
+const { slim2htmlByCountry } = require('./tasks/slim2htmlByCountry')
 // const { sass } = require('./tasks/sass')
 const { sass } = require('./tasks/sass')
 const { inlineCss } = require('./tasks/inlineCss')
@@ -70,7 +87,7 @@ const { inlineCss } = require('./tasks/inlineCss')
 exports.sass = sass
 // use sass task from cli: gulp sass
 exports.slim2html = slim2html
-exports.slim2html_ = slim2html_
+exports.slim2htmlByCountry = slim2htmlByCountry
 // use sass task from cli: gulp slim2html
 exports.inlineCss = inlineCss
 // use sass task from cli: gulp inlineCss
@@ -124,16 +141,16 @@ exports.compile = compile
 const imgWatch = () => {
   watch(['src/**/images/*.{png,jpg,gif}'], series(img, slim2html))
 }
+
 const cssWatch = () => {
   // watch(['src/**/slim/*.slim'], series(slim2html, sass, inlineCss)).on('change', (stream) => console.log(stream))
   watch(['src/**/slim/*.slim']).on('change',
     (stream) => {
-      slim2html_(stream)
+      slim2htmlByCountry(stream);
+      console.log(getFiles('render'));
     }
   )
-  watch(['src/**/scss/*.scss'], series(sass, slim2html, inlineCss)).on('change', function (stream) {
-    console.log(`sass change ${stream}`)
-  })
+  // watch(['src/**/scss/*.scss'], series(sass, slim2html)).on('change', function (stream) { console.log(`sass change ${stream}`) })
   // watch('render/FR/index.html').on('change', browserSync.reload)
 }
 exports.imgWatch = imgWatch

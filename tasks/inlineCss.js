@@ -10,10 +10,6 @@ function inlineCss(cb) {
       .pipe(cssToInline({}))
       .pipe(dest('render'))
       .pipe(browserSync.stream())
-    // .pipe(foreach(function (stream, file) {
-    //   // console.log(file.path.substr(file.path.lastIndexOf('/') - 2));
-    //   // return stream
-    // }))
 
     setTimeout(function (stream) {
       resolve(`i\'m before cssToInline promise cb ${stream}`);
