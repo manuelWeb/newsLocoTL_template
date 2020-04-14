@@ -131,9 +131,12 @@ const cssWatch = () => {
             console.log(css)
             inlineCss('inlineCss cb: ', () => {
               console.log(
-                // fs.readFileSync(html[0], 'utf8').match(/<body.+?>/)[0]
+                // fs.readFileSync(i, 'utf8').match(/<body.+?>/)[0]
                 html.map(
-                  (i) => fs.readFileSync(i, 'utf8').match(/<body.+?>/)[0]
+                  (i) => {
+                    const country = i.substring(i.lastIndexOf('/') - 2, i.lastIndexOf('/'))
+                    return { [country]: fs.readFileSync(i, 'utf8').match(/<body.+?>/)[0] }
+                  }
                 )
               )
             })
