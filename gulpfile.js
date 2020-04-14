@@ -1,48 +1,3 @@
-// import img from './tasks/img'
-// require("./tasks/img.js").default();
-
-// import { img } from './tasks/img';
-// export const img = () => {
-//   return src('src/**/images/*.{png,jpg,gif}')
-//     .pipe(dest('render'))
-// }
-
-// Development Task
-// export const dev = series(img);
-
-// export default dev;
-
-// require("./tasks/slim.js")();
-
-// lire note dependance sass.js
-// require("./tasks/sass.js")();
-// require("./tasks/premailer.js")();
-// require("./tasks/prettify.js")();
-
-// sys protection contre réécriture avant fin de slim,sass,premailer,prettify.
-// var global_end   = "";
-// const bs = require('browser-sync')
-// const plumber = require('gulp-plumber')
-// const rename = require('gulp-rename')
-// const using = require('gulp-using')
-// const changed = require('gulp-changed')
-
-// module.exports = {
-//   img,
-//   default: series(img)
-// }
-
-// src & output
-// var src = 'src/';
-
-// delete old folder before start dev task
-// gulp.task('dev', function (cb) {
-//   rimraf('./render', function cb() {
-//     console.log('render is destroyed : clean is over.\nlet\'s work on clean folder!');
-//     gulp.start('dev1');
-//   });
-// });
-
 // const reportChange = (event) => {
 //   console.log("\x1b[30m\x1b[43m%s\x1b[0m", `File: ${event.path}, type was ${event.type}, running tasks...`);
 // };
@@ -57,10 +12,11 @@
 //   gulp.watch(['source.json', src + '**/**/*.slim', src + '**/scss/*.scss'], ['slim']).on('change', reportChange);
 //   gulp.watch(src + '**/images/*.{png,jpg,gif}', ['img']).on('change', reportChange);
 // })
+
 // const path = require('path');
-const fs = require('fs');
 // const renderDir = path.join(__dirname, 'render')
 
+const fs = require('fs');
 function getFiles(dir, files_) {
   files_ = files_ || [];
   var files = fs.readdirSync(dir);
@@ -74,6 +30,12 @@ function getFiles(dir, files_) {
   }
   return files_;
 }
+
+// const html = getFiles('render').filter(i => i.match(/\.html$/g))
+// const css = getFiles('render').filter(i => i.match(/\.css$/g))
+// const htmlBV = fs.readFileSync(html[1], 'utf8')
+// const htmlBVBody = htmlBV.match(/<body.+?>/)[0]
+
 const { gulp, series, parallel, src, dest, watch } = require('gulp');
 const rimraf = require('rimraf')
 const browserSync = require('browser-sync').create()
@@ -141,17 +103,28 @@ exports.compile = compile
 const imgWatch = () => {
   watch(['src/**/images/*.{png,jpg,gif}'], series(img, slim2html))
 }
-
+// function successCallback(résultat) {
+//   console.log("L'opération a réussi avec le message : " + résultat);
+// }
+// function failureCallback(erreur) {
+//   console.error("L'opération a échoué avec le message : " + erreur);
+// }
+async function print(path) {
+  const dir = await fs.promises.opendir(path);
+  for await (const dirent of dir) {
+    console.log(`async fs.promise dirs:${dirent.name}`);
+  }
+}
 const cssWatch = () => {
   // watch(['src/**/slim/*.slim'], series(slim2html, sass, inlineCss)).on('change', (stream) => console.log(stream))
   watch(['src/**/slim/*.slim']).on('change',
     (stream) => {
-      slim2htmlByCountry(stream);
-
-      const html = getFiles('render').filter(i => i.match(/\.html$/g))
-      const css = getFiles('render').filter(i => i.match(/\.css$/g))
-      const htmlBV = fs.readFileSync(html[1], 'utf8')
-      const htmlBVBody = htmlBV.match(/<body.+?>/)[0]
+      slim2htmlByCountry(stream, () => getFiles('render').filter(i => i.match(/\.html$/g)));
+      // print('./render').catch(e => e).then(console.log('fichier pas prét'))
+      // const html = getFiles('render').filter(i => i.match(/\.html$/g))
+      // const css = getFiles('render').filter(i => i.match(/\.css$/g))
+      // const htmlBV = fs.readFileSync(html[1], 'utf8')
+      // const htmlBVBody = htmlBV.match(/<body.+?>/)[0]
 
       // console.log('\x1b[36m%s\x1b[0m', fs.readFileSync(html[1], 'utf8'));
       // console.log(htmlBVBody, css);
