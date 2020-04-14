@@ -14,16 +14,18 @@ function sass(cb) {
         path.dirname += "/../css";
       }))
       .pipe(dest('render'))
+      .on('end', resolve)
 
-    setTimeout(function () {
-      resolve('i\'m before sass promise cb');
-    }, 0);
+    // setTimeout(function () {
+    //   resolve('i\'m before sass promise cb');
+    // }, 0);
 
   })
   promise1.then(function (value) {
     console.log(value);
     // expected output: "i\'m before sass promise cb"
-    cb(console.log('it\'s ok for sass'));
+    // cb(console.log('it\'s ok for sass'));
+    cb();
   });
 
 

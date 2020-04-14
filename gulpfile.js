@@ -38,15 +38,18 @@ function getFiles(dir, files_) {
 
 const { gulp, series, parallel, src, dest, watch } = require('gulp');
 const rimraf = require('rimraf')
+const { exec } = require('child_process');
 const browserSync = require('browser-sync').create()
 // const slim = require("gulp-slim");
 const { slim2html } = require('./tasks/slim')
 const { slim2htmlByCountry } = require('./tasks/slim2htmlByCountry')
 // const { sass } = require('./tasks/sass')
 const { sass } = require('./tasks/sass')
+const { sassByCountry } = require('./tasks/sassByCountry')
 const { inlineCss } = require('./tasks/inlineCss')
 
 exports.sass = sass
+exports.sassByCountry = sassByCountry
 // use sass task from cli: gulp sass
 exports.slim2html = slim2html
 exports.slim2htmlByCountry = slim2htmlByCountry
@@ -71,12 +74,14 @@ function log(message) {
   console.log(message);
 }
 
-async function rm() {
-  await Promise.resolve(
-    endSignal = true,
-    rimraf.sync('./render'),
-    log(`render is removed let's work on clean foler.`)
-  )
+function rm(done) {
+  exec('rm -r render', (err) => {
+    if (err) {
+      console.error(`${err}`);
+      return;
+    }
+  })
+  done()
 }
 // use as cli gulp rm
 exports.rm = rm
@@ -103,23 +108,39 @@ exports.compile = compile
 const imgWatch = () => {
   watch(['src/**/images/*.{png,jpg,gif}'], series(img, slim2html))
 }
-// function successCallback(résultat) {
-//   console.log("L'opération a réussi avec le message : " + résultat);
-// }
-// function failureCallback(erreur) {
-//   console.error("L'opération a échoué avec le message : " + erreur);
-// }
 async function print(path) {
   const dir = await fs.promises.opendir(path);
   for await (const dirent of dir) {
-    console.log(`async fs.promise dirs:${dirent.name}`);
+    console.log(`async fs.promise dirs: ./render/${dirent.name}/index.html`);
   }
 }
 const cssWatch = () => {
-  // watch(['src/**/slim/*.slim'], series(slim2html, sass, inlineCss)).on('change', (stream) => console.log(stream))
   watch(['src/**/slim/*.slim']).on('change',
     (stream) => {
-      slim2htmlByCountry(stream, () => getFiles('render').filter(i => i.match(/\.html$/g)));
+      // sl2htmlByCoun(dir:fileToCompile, callback)
+      let html, css = []
+
+      slim2htmlByCountry(
+        stream,
+        () => {
+          html = getFiles('render').filter(i => i.match(/\.html$/g))
+          console.clear()
+          console.log(html);
+          sassByCountry(stream, () => {
+            css = getFiles('render').filter(i => i.match(/\.css$/g))
+            console.log(css)
+            inlineCss('inlineCss cb: ', () => {
+              console.log(
+                // fs.readFileSync(html[0], 'utf8').match(/<body.+?>/)[0]
+                html.map(
+                  (i) => fs.readFileSync(i, 'utf8').match(/<body.+?>/)[0]
+                )
+              )
+            })
+          })
+        }
+      );
+
       // print('./render').catch(e => e).then(console.log('fichier pas prét'))
       // const html = getFiles('render').filter(i => i.match(/\.html$/g))
       // const css = getFiles('render').filter(i => i.match(/\.css$/g))
