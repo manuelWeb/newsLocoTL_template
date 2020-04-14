@@ -147,7 +147,15 @@ const cssWatch = () => {
   watch(['src/**/slim/*.slim']).on('change',
     (stream) => {
       slim2htmlByCountry(stream);
-      console.log(getFiles('render'));
+
+      const html = getFiles('render').filter(i => i.match(/\.html$/g))
+      const css = getFiles('render').filter(i => i.match(/\.css$/g))
+      const htmlBV = fs.readFileSync(html[1], 'utf8')
+      const htmlBVBody = htmlBV.match(/<body.+?>/)[0]
+
+      // console.log('\x1b[36m%s\x1b[0m', fs.readFileSync(html[1], 'utf8'));
+      // console.log(htmlBVBody, css);
+
     }
   )
   // watch(['src/**/scss/*.scss'], series(sass, slim2html)).on('change', function (stream) { console.log(`sass change ${stream}`) })
