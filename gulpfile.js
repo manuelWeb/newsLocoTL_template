@@ -103,7 +103,7 @@ const compile = series(
 compile.description = 'compile all sources'
 exports.compile = compile
 
-// exports.dev = series( rm, img, slim2html, sass, bs, cssWatch )
+// exports.dev = series( rm, img, slim2html, sass, bs, slimMasterWatch )
 
 const imgWatch = () => {
   watch(['src/**/images/*.{png,jpg,gif}'], series(img, slim2html))
@@ -114,7 +114,10 @@ async function print(path) {
     console.log(`async fs.promise dirs: ./render/${dirent.name}/index.html`);
   }
 }
-const cssWatch = () => {
+const slimPartWatch = () => {
+  watch(['src/**/**/*.slim', 'src/**/*.slim'], slimMasterWatch)
+}
+const slimMasterWatch = () => {
   watch(['src/**/slim/*.slim']).on('change',
     (stream) => {
       // sl2htmlByCoun(dir:fileToCompile, callback)
@@ -132,36 +135,30 @@ const cssWatch = () => {
             inlineCss('inlineCss cb: ', () => {
               console.log(
                 // fs.readFileSync(i, 'utf8').match(/<body.+?>/)[0]
-                html.map(
-                  (i) => {
-                    const country = i.substring(i.lastIndexOf('/') - 2, i.lastIndexOf('/'))
-                    return { [country]: fs.readFileSync(i, 'utf8').match(/<body.+?>/)[0] }
+                html.map((i) => {
+                  const country = i.substring(i.lastIndexOf('/') - 2, i.lastIndexOf('/'))
+                  return {
+                    [country]: {
+                      'title': fs.readFileSync(i, 'utf8').match(/<title>.+<\/title>/)[0],
+                      'body': fs.readFileSync(i, 'utf8').match(/<body.+?>/)[0]
+                    }
                   }
-                )
+                })
               )
             })
           })
-        }
-      );
-
-      // print('./render').catch(e => e).then(console.log('fichier pas prét'))
-      // const html = getFiles('render').filter(i => i.match(/\.html$/g))
-      // const css = getFiles('render').filter(i => i.match(/\.css$/g))
-      // const htmlBV = fs.readFileSync(html[1], 'utf8')
-      // const htmlBVBody = htmlBV.match(/<body.+?>/)[0]
-
-      // console.log('\x1b[36m%s\x1b[0m', fs.readFileSync(html[1], 'utf8'));
-      // console.log(htmlBVBody, css);
-
-    }
-  )
-  // watch(['src/**/scss/*.scss'], series(sass, slim2html)).on('change', function (stream) { console.log(`sass change ${stream}`) })
-  // watch('render/FR/index.html').on('change', browserSync.reload)
+        });
+    })
 }
+// watch(['src/**/scss/*.scss'], series(sass, slim2html)).on('change', function (stream) { console.log(`sass change ${stream}`) })
+// watch('render/FR/index.html').on('change', browserSync.reload)
 exports.imgWatch = imgWatch
-exports.cssWatch = cssWatch
-const watchall = parallel(imgWatch, cssWatch)
+exports.slimMasterWatch = slimMasterWatch
+exports.slimPartWatch = slimPartWatch
+
+const watchall = parallel(imgWatch, slimMasterWatch)
 exports.watchall = watchall
 
-const start = parallel(compile, watchall)
+// const start = parallel(compile, watchall)
+const start = series(slimPartWatch, slimMasterWatch)
 exports.start = start
