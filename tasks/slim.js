@@ -9,6 +9,7 @@ function slim2html() {
   return src('src/**/slim/*.slim')
     .pipe(plumber())
     .pipe(slim({
+      pretty: true,
       options: "encoding='utf-8'"
     }))
     .pipe(rename(function (path) {

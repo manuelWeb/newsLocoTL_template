@@ -1,5 +1,6 @@
 const { src, dest } = require('gulp')
-const cssToInline = require('gulp-inline-css');
+// const cssToInline = require('gulp-inline-css');
+const premailer = require('gulp-premailer');
 const foreach = require("gulp-foreach");
 const browserSync = require('browser-sync').create()
 
@@ -7,7 +8,7 @@ function inlineCss(firstarg, cb) {
 
   const promise1 = new Promise(function (resolve, reject) {
     src('render/**/*.html')
-      .pipe(cssToInline({}))
+      .pipe(premailer({}))
       .pipe(dest('render'))
       .on('end', resolve)
 

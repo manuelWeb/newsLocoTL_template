@@ -10,6 +10,7 @@ function slim2htmlByCountry(arg, cb) {
     return src(arg)
       .pipe(plumber())
       .pipe(slim({
+        pretty: true,
         options: "encoding='utf-8'"
       }))
       .pipe(rename(function (path) {

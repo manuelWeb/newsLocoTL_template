@@ -115,6 +115,7 @@ async function print(path) {
   }
 }
 const slimPartWatch = () => {
+  bs()
   watch(['src/**/**/*.slim', 'src/**/*.slim'], slimMasterWatch)
 }
 const slimMasterWatch = () => {
